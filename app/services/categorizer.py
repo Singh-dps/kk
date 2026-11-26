@@ -281,7 +281,7 @@ def enrich_ambiguous_with_gemini(items: list[dict[str, Any]]) -> list[dict[str, 
             "Return ONLY a JSON array of objects: [{\"id\": \"...\", \"category\": \"...\", \"merchant\": \"...\"}].\n"
             f"Transactions: {json.dumps(payload)}"
         )
-        resp = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
+        resp = client.models.generate_content(model="gemini-3.8-flash", contents=prompt)
         raw = (resp.text or "").strip()
         m = re.search(r"\[.*\]", raw, re.DOTALL)
         if m:

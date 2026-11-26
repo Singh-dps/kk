@@ -254,7 +254,7 @@ def answer_financial_question(
                 f"Question: {sanitize_for_external_ai(question)}\n"
                 f"Verified facts:\n{safe_facts}"
             )
-            resp = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
+            resp = client.models.generate_content(model="gemini-3.8-flash", contents=prompt)
             if resp.text and len(resp.text.strip()) > 10:
                 answer = resp.text.strip()
         except Exception:
